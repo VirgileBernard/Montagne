@@ -1,0 +1,103 @@
+header{
+    color:$white1;
+    position: relative;
+    min-height: 100vh;
+
+    .header-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // il faut aussi lui dire de faire 100vh
+    min-height: 100vh;
+    // opacité à 0 avant l'animation
+    opacity: 0;
+    // faire monter les élements
+    transform: translateY(40px);
+    // appeller l'animation, sa durée, forwards pour qu'elle reste dans sa 2ieme keyframes
+    animation: headerAnim 1.5s forwards;
+
+    @keyframes headerAnim {
+        to{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    }
+    h1{
+        // attribuer la mixin à h1
+        @include title;
+        font-size: 4rem;
+        // y'avait déjà un LetterSpacing dans la mixin mais on veut en donner un unique au H1
+        letter-spacing: 4px;
+    }
+    p{
+        margin: 40px auto 60px;
+        font-style: italic;
+        width: 85%;
+    }
+    span{
+        border: 2px solid $white1;
+        border-radius: 50px;
+        height: 60px;
+        width: 60px;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.153);
+        color: $white1;
+        width: 100%;
+        min-height: 65px;
+        position: absolute;
+        bottom: 0;
+        // centrer un élement absolute 
+        left: 50%; 
+        // il est centré par rapport à son coin en haut à gauche
+        transform: translateX(-50%);
+        // il se décale de 50% sur l'axe horizontal
+        ul{
+            display: flex;
+            align-items: center;
+        }
+        .nav-left{
+         
+            li{
+                @include title;
+                font-size: 0.7rem;
+                padding: 0 15px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+              
+                &:hover{
+                    background: $white1;
+                    color: $black1;
+                }
+          }
+        }
+    }
+        .nav-right{
+            font-size: 1.1rem;
+            min-width: 100px;
+            width: 25%;
+            justify-content: space-around;
+            margin-right: 10px;
+            
+            // faire en sorte que mes li grossissent au survol
+            li{
+                transition: 0.15s;
+                cursor: pointer;
+
+                &:hover{
+                    transform: scale(1.3);
+                }
+            }
+        }
+}
