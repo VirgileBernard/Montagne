@@ -83,7 +83,7 @@ body {
   .btn{
     background: none;
     border: 2px solid $black1;
-    color: $white1;
+    color: $black1;
     height: 45px;
     width: 170px;
     font-size: 0.75rem;
@@ -93,7 +93,11 @@ body {
 
     
     &:hover{
+        // faire grossir le bouton
         transform: scale(1.05);
-        transition: 0.2s;
+        // transition smooth
+        transition: 0.3s;
+        // faire grossir le texte
+        font-weight: bolder;
     }
   }
